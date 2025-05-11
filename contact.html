@@ -26,7 +26,7 @@
   </section>
 
   <section class="contact-form">
-    <form action="https://formsubmit.co/gsamirabourgi@gmail.com" method="POST">
+    <form id="form-contact" action="https://formsubmit.co/gsamirabourgi@gmail.com" method="POST">
       <div class="form-row">
         <input type="text" name="nom" placeholder="Nom" required>
         <input type="text" name="prenom" placeholder="Prénom" required>
@@ -38,16 +38,59 @@
       <input type="text" name="sujet" placeholder="Sujet" required>
       <textarea name="message" placeholder="Ton message..." rows="6" required></textarea>
 
-      <!-- Config Formsubmit -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.hisamira.com/merci.html">
-
       <button type="submit" class="send-btn">Envoyer</button>
     </form>
   </section>
 
+  <div id="popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h3>✨ C'est dans la boîte !</h3>
+      <p>Merci pour ton message. J'ai hâte de te lire ✉️</p>
+      <button onclick="closePopup()">Fermer</button>
+    </div>
+  </div>
+
   <footer>
     &copy; 2025 Samira Bourgi Gueye
   </footer>
+
+  <script>
+    // Active la nav
+    const links = document.querySelectorAll('nav a');
+    const currentPage = location.pathname.split('/').pop();
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+
+    // Gestion de l'envoi avec pop-up
+    document.getElementById("form-contact").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = this;
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          form.reset();
+          document.getElementById("popup").style.display = "flex";
+        } else {
+          alert("Erreur lors de l'envoi. Réessaie plus tard.");
+        }
+      })
+      .catch(error => {
+        alert("Erreur de connexion. Réessaie plus tard.");
+        console.error(error);
+      });
+    });
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 </body>
 </html>
