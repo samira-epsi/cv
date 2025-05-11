@@ -26,7 +26,7 @@
   </section>
 
   <section class="contact-form">
-    <form id="form-contact">
+    <form action="https://formsubmit.co/gsamirabourgi@gmail.com" method="POST">
       <div class="form-row">
         <input type="text" name="nom" placeholder="Nom" required>
         <input type="text" name="prenom" placeholder="Prénom" required>
@@ -37,22 +37,17 @@
       </div>
       <input type="text" name="sujet" placeholder="Sujet" required>
       <textarea name="message" placeholder="Ton message..." rows="6" required></textarea>
+
+      <!-- Config Formsubmit -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.hisamira.com/merci.html">
+
       <button type="submit" class="send-btn">Envoyer</button>
     </form>
   </section>
 
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <h3>✨ C'est dans la boîte !</h3>
-      <p>Merci pour ton message. J'ai hâte de te lire ✉️</p>
-      <button onclick="closePopup()">Fermer</button>
-    </div>
-  </div>
-
   <footer>
     &copy; 2025 Samira Bourgi Gueye
   </footer>
-
-  <script src="contact.js"></script>
 </body>
 </html>
