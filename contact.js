@@ -1,23 +1,35 @@
+// Active la nav
+const links = document.querySelectorAll('nav a');
+const currentPage = location.pathname.split('/').pop();
+links.forEach(link => {
+  if (link.getAttribute('href') === currentPage) {
+    link.classList.add('active');
+  }
+});
+
+// Gestion de l'envoi avec fetch + pop-up
 document.getElementById("form-contact").addEventListener("submit", function(e) {
   e.preventDefault();
-
   const form = this;
   const formData = new FormData(form);
 
-  fetch("https://formsubmit.co/gsamirabourgi@gmail.com", {
+  fetch(form.action, {
     method: "POST",
-    body: formData
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
   })
   .then(response => {
     if (response.ok) {
       form.reset();
       document.getElementById("popup").style.display = "flex";
     } else {
-      alert("Erreur lors de l'envoi. Réessaie plus tard.");
+      alert("Erreur d'envoi. Merci de réessayer.");
     }
   })
   .catch(error => {
-    alert("Erreur de connexion. Réessaie plus tard.");
+    alert("Erreur réseau. Merci de réessayer.");
     console.error(error);
   });
 });
