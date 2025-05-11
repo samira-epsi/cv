@@ -40,16 +40,21 @@ window.onload = typeFirstLine;
 
 
 function closePopup() {
-  document.getElementById('popupBackdrop').style.display = 'none';
-  localStorage.setItem('popupShown', 'true'); // On note que la popup a été vue
+  const popup = document.getElementById('popupBackdrop');
+  if (popup) {
+    popup.style.display = 'none';
+    sessionStorage.setItem('popupShown', 'true'); // ne montre plus pendant cette session
+  }
 }
 
 window.addEventListener('load', () => {
-  const alreadySeen = localStorage.getItem('popupShown');
-  if (!alreadySeen) {
+  const alreadySeen = sessionStorage.getItem('popupShown');
+  const popup = document.getElementById('popupBackdrop');
+  if (!alreadySeen && popup) {
     setTimeout(() => {
-      document.getElementById('popupBackdrop').style.display = 'flex';
+      popup.style.display = 'flex';
     }, 5000);
   }
 });
+
 
