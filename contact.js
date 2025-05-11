@@ -1,25 +1,27 @@
-// Gère l'effet active dans la nav
-const links = document.querySelectorAll('nav a');
-const currentPage = location.pathname.split('/').pop();
-
-links.forEach(link => {
-  if (link.getAttribute('href') === currentPage) {
-    link.classList.add('active');
-  }
-});
-
-// Pop-up à l'envoi du formulaire
 document.getElementById("form-contact").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  // Reset le formulaire (simule un envoi)
-  this.reset();
+  const form = this;
+  const formData = new FormData(form);
 
-  // Affiche la pop-up
-  document.getElementById("popup").style.display = "flex";
+  fetch("https://formsubmit.co/gsamirabourgi@gmail.com", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      form.reset();
+      document.getElementById("popup").style.display = "flex";
+    } else {
+      alert("Erreur lors de l'envoi. Réessaie plus tard.");
+    }
+  })
+  .catch(error => {
+    alert("Erreur de connexion. Réessaie plus tard.");
+    console.error(error);
+  });
 });
 
-// Ferme la pop-up
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
