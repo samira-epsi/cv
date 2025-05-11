@@ -39,21 +39,21 @@ window.onload = typeFirstLine;
 
 
 
+
 function closePopup() {
-  const popup = document.getElementById('popupBackdrop');
-  if (popup) {
-    popup.style.display = 'none';
-  }
+  document.getElementById('popupBackdrop').style.display = 'none';
+  localStorage.setItem('popupShown', 'true'); // On note que la popup a été vue
 }
 
 window.addEventListener('load', () => {
-  const popup = document.getElementById('popupBackdrop');
-  if (popup) {
+  const alreadySeen = localStorage.getItem('popupShown');
+  if (!alreadySeen) {
     setTimeout(() => {
-      popup.style.display = 'flex';
+      document.getElementById('popupBackdrop').style.display = 'flex';
     }, 5000);
   }
 });
+
 
 
 
