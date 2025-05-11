@@ -1,0 +1,151 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #333;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #880e4f;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  z-index: 1001;
+}
+
+
+nav ul li a.active {
+  background-color: #6d0041;
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+}
+
+section {
+  padding-top: 150px; /* remonte le contenu sous le header */
+  margin-top: 0 !important;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5rem;
+}
+
+nav {
+  position: relative;
+  z-index: 1001;
+}
+
+
+/* === TIMELINE === */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 4rem 0 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #880e4f;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.timeline-point {
+  background: white;
+  border: 3px solid #880e4f;
+  border-radius: 999px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+.timeline-point:hover,
+.timeline-point.active {
+  background: #880e4f;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* === DETAILS === */
+.details {
+  display: none;
+  margin-top: 2rem;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-left: 4px solid #880e4f;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.details.active {
+  display: block;
+}
+
+
+footer {
+  background: #880e4f;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+  }
+
+  .timeline::before {
+    width: 4px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-point {
+    margin: 1.2rem 0;
+
+  }
+}

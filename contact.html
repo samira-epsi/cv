@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Samira</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <header>
+    <h1>Samira Bourgi GUEYE</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Profil</a></li>
+        <li><a href="experiences.html">Expériences</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-intro">
+    <h2>Tu veux me contacter ?</h2>
+    <p>Que ce soit pour une mission, une idée, ou juste un échange... écris-moi ici. Je te réponds vite.</p>
+  </section>
+
+  <section class="contact-form">
+    <form id="form-contact">
+      <div class="form-row">
+        <input type="text" name="nom" placeholder="Nom" required>
+        <input type="text" name="prenom" placeholder="Prénom" required>
+      </div>
+      <div class="form-row">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="entreprise" placeholder="Entreprise (optionnel)">
+      </div>
+      <input type="text" name="sujet" placeholder="Sujet" required>
+      <textarea name="message" placeholder="Ton message..." rows="6" required></textarea>
+      <button type="submit" class="send-btn">Envoyer</button>
+    </form>
+  </section>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>✨ C'est dans la boîte !</h3>
+      <p>Merci pour ton message. J'ai hâte de te lire ✉️</p>
+      <button onclick="closePopup()">Fermer</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Samira Bourgi Gueye
+  </footer>
+
+  <script src="contact.js"></script>
+</body>
+</html>

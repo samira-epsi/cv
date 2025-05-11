@@ -1,0 +1,144 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #333;
+}
+
+header {
+  background: #880e4f;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #6d0041;
+}
+
+.intro {
+  margin-top: 10rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: #fdf1f5;
+}
+
+.skills-section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.skill-block {
+  padding: 2rem;
+  background: #ffffff;
+  border-left: 5px solid #880e4f;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skill-block.alt {
+  background: #f9f9f9;
+}
+
+.skill-block h2 {
+  margin-top: 0;
+  color: #880e4f;
+}
+
+.intro-text {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+.grid-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.soft-text p {
+  margin: 0.6rem 0;
+  font-size: 1rem;
+}
+
+footer {
+  background: #880e4f;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .skills-section {
+    padding: 1rem;
+  }
+
+  .grid-tools {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+.tool-line {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #444;
+  line-height: 1.6;
+}
+
+.approche-list {
+  list-style: none;
+  padding-left: 0;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+
+.biz-list {
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+
+.biz-list li {
+  margin-bottom: 0.4rem;
+}
+
+.tool-line {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #444;
+  line-height: 1.6;
+}
