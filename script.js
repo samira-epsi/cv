@@ -43,18 +43,17 @@ function closePopup() {
   const popup = document.getElementById('popupBackdrop');
   if (popup) {
     popup.style.display = 'none';
-    sessionStorage.setItem('popupShown', 'true'); // ne montre plus pendant cette session
   }
 }
 
 window.addEventListener('load', () => {
-  const alreadySeen = sessionStorage.getItem('popupShown');
   const popup = document.getElementById('popupBackdrop');
-  if (!alreadySeen && popup) {
+  if (popup) {
     setTimeout(() => {
       popup.style.display = 'flex';
     }, 5000);
   }
 });
+
 
 
